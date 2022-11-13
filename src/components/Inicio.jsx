@@ -1,5 +1,4 @@
-
-import Pikachu from "../imagenes/Pikachu.png"
+import Pikachu from "../images/Pikachu.png"
 
 function Inicio() {
     return ( 

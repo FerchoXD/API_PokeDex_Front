@@ -1,4 +1,4 @@
-import '../Form.css'
+import '../styles/Form.css'
 import { useNavigate } from "react-router-dom"
 
 function Email(props) {
@@ -13,7 +13,7 @@ function Password(props) {
 }
 function Confirmar(props) {
   return (<div class="form-row-last">
-  <input type="submit" name="Registrarse" class="register" value="Registrarse"/>
+  <input type="submit" name="Login" class="register" value="Login"/>
 </div>);
 }
 
@@ -35,14 +35,14 @@ function Derecha(props) {
 function Login() {
   const navigate = useNavigate()
   function HandlerGo(){
-    navigate("/re")
+    navigate("/registro")
   }
 
   return (
     <div className="App">
       	<div class="page-content">
 		<div class="form-v10-content">
-			<form class="form-detail" action="#" method="post" id="myform">
+			<form class="form-detail" id="myform">
       <Derecha derecha="derecha"/>
       <button onFocus={() => HandlerGo()}> ¿Aún no tiene cuenta? Cree una </button>
 			</form>
