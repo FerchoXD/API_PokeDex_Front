@@ -7,12 +7,11 @@ import "../styles/FormLogin.css"
 function FormLogin() {
 
     const navigate = useNavigate();
-
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [age, setAge] = useState("");
     const [category, setCategory] = useState("");
-
+   
     const form = useRef(null);
 
     function handleSubmit(e) {
@@ -39,12 +38,12 @@ function FormLogin() {
         };
 
         fetch('http://localhost:8080/trainer/',
-                requestOptions)
+            requestOptions)
             .then(res => res.json())
             .then(data => {
-                if(data.success == true){
+                if (data.success == true) {
                     navigate("/")
-                }else{
+                } else {
                     alert("Usuario no creado")
                     navigate("*")
                 }
@@ -62,8 +61,8 @@ function FormLogin() {
         const value = e.target.value;
         setPassword(value);
     }
-
     return (
+        
         <>
             <div className='container'>
                 <form className="form" id="form" onSubmit={handleSubmit} ref={form}>
@@ -92,7 +91,17 @@ function FormLogin() {
                         placeholder='Write a safe password'
                         required />
 
-                    <input type="submit" placeholder='login' />
+                    <center>
+                    <label>Foto de perfil</label>
+                    <input type="file"
+                    image="image"
+                    id="image"
+                    placeholder='choosefile'
+                    />
+                    </center>
+                    
+                    <div><input type="submit" placeholder='login' /></div>
+                    
 
                     <Link to="/Register">
                         <p><span>

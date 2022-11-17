@@ -30,9 +30,6 @@ function FormLogin() {
         })
             .then(res => res.json())
             .then(data => {
-                //console.log(data.data.password)
-                console.log(data.status)
-
                 const user = {
                     userName: formData.get('name'),
                     userPassword: formData.get('password')
@@ -45,10 +42,10 @@ function FormLogin() {
                     if(user.userPassword == data.data.password){
                         navigate("/home")
                     }else{
-                        navigate("/adondevasputa")
+                        navigate("*")
                     }
                 }else{
-                    navigate("/adondevasputa")
+                    navigate("*")
                     console.log("Usuario no encontrado")
                 }
 
