@@ -1,0 +1,70 @@
+.container{
+    padding: 0;
+    margin: 0;
+    height: 739px;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url(../images/índice.jpg);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px black;
+    border-radius: 15px;
+    width: 600px;
+    height: 400px;
+    background: rgba(5, 7, 12, 0.75);
+    color: #fff;
+}
+
+input{
+    margin-bottom: 15px;
+}
+
+input:not(.sub, .wrong){
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px white;
+    color: rgb(255, 255, 255);
+}
+
+input:not(.sub):hover{
+    border-bottom: solid 1px rgb(255, 218, 95);
+    cursor: pointer;
+    transition: all 200ms;
+
+}
+
+.sub{
+    background-color: rgb(93, 190, 93);
+    border-radius: 12px;
+    padding: 2px 15px;
+    margin: 30px 0px;
+    font-size: 15px;
+    border: none;
+}
+
+.sub:hover{
+    cursor: pointer;
+    background-color: rgb(64, 187, 64);
+    box-shadow: 1px 1px 13px rgba(107, 217, 118, 0.54);
+    transition: all 200ms;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
+
+p{
+    display: block;
+}
