@@ -1,3 +1,4 @@
+
 function Pokemon({name, image}) {
     return ( <>
         <div>

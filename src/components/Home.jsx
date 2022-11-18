@@ -8,10 +8,12 @@ import "../styles/Header.css"
 import "../styles/Navbar.css"
 import "../styles/logo.css"
 import { Link } from "react-router-dom"
+import React, {useContext} from "react"
+import PokemonContext from "../context/PokemonContext"
 
 
 function Home() {
-
+    const {value, setValue} = useContext (PokemonContext)
     return (
         <>
 <div className="header">
@@ -68,6 +70,13 @@ function Home() {
                     <Inicio></Inicio>
                     </>
                 </div>
+                <div>
+                    {value}
+                </div>
+                <button onClick={()=>setValue({
+                    name: "Charizard",
+                    specie: "Fuego"
+                })}></button>
             </div>
 
 

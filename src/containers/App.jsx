@@ -7,6 +7,10 @@ import FormLogin from "../Forms/FormLogin";
 import FormRegister from "../Forms/FormRegister"
 import CPokemons from "../components/CPokemon";
 import Picture from "../components/Picture";
+import PokemonContext from "../context/PokemonContext";
+
+
+import Prueba from "../context/Prueba"
 
 function App() {
   return (
@@ -14,11 +18,13 @@ function App() {
     <Routes>
       <Route path="/picture" element={<Picture/>}/>
       <Route path="/crear" element={<CPokemons/>} />
+      <Route path="/prueba" element={<Prueba/>} />
       <Route path="/" element={<FormLogin/>} />
       <Route path="/Register" element={<FormRegister/>} />
       <Route path='/home' element={<Home/>}/>
       <Route path="/pokemons" element={<ListPokemons/>}/>
-      <Route path="/comentarios" element={<Comentarios/>}></Route>
+      <Route path="/comentarios" element={<Comentarios/>}/>
+      <Route path="/pokemoncontext" element={<PokemonContext/>}/>
       <Route path="*" element={<NotFound/>} />
     </Routes>
   </div>

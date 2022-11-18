@@ -1,10 +1,15 @@
 import { useNavigate } from 'react-router-dom'
 import { useState, useRef, useContext } from "react"
-import UserContext from "../Context/UserContext"
+
 import Input from '../Forms/Input'
 
+import PokemonContext  from "../context/PokemonContext"
+
 function Picture() {
-    const value =  useContext(UserContext)
+
+    const {pokemon} = useContext(PokemonContext)
+
+    const value =  useContext(PokemonContext)
     const form = useRef(null);
     const navigate = useNavigate();
     const [image, setImage] = useState("");
