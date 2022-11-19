@@ -1,18 +1,18 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useState, useRef, useContext } from "react"
+import { useState, useRef } from "react"
 import Input from "../Forms/Input";
 import "../styles/FormPokemon.css"
-import Prueba from "../context/Prueba"
-import UserContext from "../context/UserContext"
-
+//import Prueba from "../context/Prueba"
+//import UserContext from "../context/UserContext"
+import { useDispatch } from 'react-redux';
 import PokemonContext from "../context/PokemonContext"
 
 function Form() {
 
     //const value = useContext(PokemonContext);
     const [user, setUser] = useState(null)
-
+    const dispatch = useDispatch();
     const form = useRef(null);
     const navigate = useNavigate();
     const [name, setName] = useState("");
@@ -23,7 +23,6 @@ function Form() {
     function handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData(form.current);
-
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -54,9 +53,16 @@ function Form() {
                 //console.log(id)
                 //console.log(name)
                 if (data.success == true) {
-                    context(id, name)
                     alert("Usuario creado")
-                    navigate("/prueba")
+                    //context(id, name)
+                    dispatch({
+                        type: "ACTION01",
+                        value: {
+                            id: id,
+                            name: name
+                        }
+                    })
+                    navigate("/Picture")
                 } else {
                     alert("Usuario no creado")
                     //avigate("*")
@@ -93,7 +99,7 @@ function Form() {
         setType(value);
     }
     return (
-        <PokemonContext.Provider value={{pokemon, setPokemon }}>
+        <PokemonContext.Provider value={{ pokemon, setPokemon }}>
             <div className="form">
                 <form onSubmit={handleSubmit} ref={form}>
                     <div className="input-container">
