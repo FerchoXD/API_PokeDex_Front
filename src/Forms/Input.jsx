@@ -16,6 +16,7 @@ function Input ({ type, label, classname, name, id, placeholder, onclick, onblur
             className={classname}
             onClick={onclick}
             onBlurCapture={onblur}
+            multiple
             />
         </>
     )

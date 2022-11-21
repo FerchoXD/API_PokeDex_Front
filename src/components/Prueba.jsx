@@ -7,27 +7,21 @@ import React from 'react';
 
 function Prueba() {
     const [archivos, setArchivos] = useState(null);
-    const SubirArchivos = e => {
+    function SubirArchivos(e){
         setArchivos(e)
     }
-    const pokemon = useSelector(state => state.pokemon)
-    const navigate = useNavigate()
-    let id = pokemon.id;
-    let url='http://localhost:8080/file/pokemon/'+id;
     const InsertarArchivos = async() => {
         const f = new FormData();
-        f.append('file', archivos[0])
-        await axios.put(url, f)
+        f.append('files', archivos[0])
+        await axios.put("http://localhost:8080/file/pokemon/127", f)
         .then(response => {
             console.log(response)
-            alert('Pokemon creado');
-            navigate('/')
             }).catch(error => {console.log(error)})
     } 
     return ( 
         <>
         <div>
-            <input type="file" name='file' multiple placeholder='Sube un archivo' onChange={(e)=> SubirArchivos(e.target.files)}></input>
+            <input type="file" name='files' multiple placeholder='Sube un archivo' onChange={(e)=> SubirArchivos(e.targetfiles)}></input>
             <button onClick={InsertarArchivos}>Subir imagen</button>
         </div>
         </>
