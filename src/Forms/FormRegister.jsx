@@ -11,7 +11,7 @@ function FormLogin() {
     const [password, setPassword] = useState("");
     const [age, setAge] = useState("");
     const [category, setCategory] = useState("");
-   
+
     const form = useRef(null);
 
     function handleSubmit(e) {
@@ -62,51 +62,54 @@ function FormLogin() {
         setPassword(value);
     }
     return (
-        
+
         <>
-            <div className='container'>
-                <form className="form" id="form" onSubmit={handleSubmit} ref={form}>
-                    <h1>Registro</h1>
-                    <label>Ingresa tu nombre de usuario: </label>
-                    <input type="text"
-                        onChange={handleChangeName}
-                        name='name'
-                        id='name'
-                        placeholder='Write a username: '
-                        required />
+            <div>
+                <form className="form-control-plaintext" id="form" onSubmit={handleSubmit} ref={form}>
+                    <div className='container'>
+                        <div className='h1'>Registro
+                            <h5>Ingresa tu nombre de usuario: </h5>
+                            <input className='input' type="text"
+                                onChange={handleChangeName}
+                                name='name'
+                                id='name'
+                                placeholder='Cree un nombre de usuario: '
+                                required />
 
-                    <label>Ingresa tu edad: :</label>
-                    <input type="number"
-                        onChange={handleChangePassword}
-                        name='age'
-                        id='age'
-                        placeholder='Write your age: '
-                        required />
+                            <h5>Ingresa tu edad: :</h5>
+                            <input className='input' type="number"
+                                onChange={handleChangePassword}
+                                name='age'
+                                id='age'
+                                placeholder='Escriba su edad (número): '
+                                required />
 
-                    <label>Ingresa una contraseña segura:</label>
-                    <input type="password"
-                        onChange={handleChangePassword}
-                        name='password'
-                        id='password'
-                        placeholder='Write a safe password'
-                        required />
+                            <h5>Ingresa una contraseña segura:</h5>
+                            <input className='input' type="password"
+                                onChange={handleChangePassword}
+                                name='password'
+                                id='password'
+                                placeholder='Cree una contraseña'
+                                required />
 
-                    <center>
-                    <label>Foto de perfil</label>
-                    <input type="file"
-                    image="image"
-                    id="image"
-                    placeholder='choosefile'
-                    />
-                    </center>
-                    
-                    <div><input type="submit" placeholder='login' /></div>
-                    
+                            <center>
+                                <h5>Foto de perfil</h5>
+                                <input className='input' type="file"
+                                    image="image"
+                                    id="image"
+                                    placeholder='choosefile'
+                                />
+                            </center>
 
-                    <Link to="/Register">
-                        <p><span>
-                            You do not have an account?</span></p>
-                    </Link>
+                            <div><input className='button' type="submit" placeholder='login' /></div>
+
+                            <Link to="/">
+                                <p><span><h6>
+                                    ¿Ya tienes una cuenta?</h6></span></p>
+                            </Link>
+
+                        </div>
+                    </div>
 
                 </form>
 

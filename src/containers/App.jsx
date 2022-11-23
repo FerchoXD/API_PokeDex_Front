@@ -10,9 +10,7 @@ import FormRegister from "../Forms/FormRegister"
 import CPokemons from "../components/CPokemon";
 import Picture from "../components/Picture";
 import PokemonContext from "../context/PokemonContext";
-
-
-
+import Forum from "../components/Forum";
 import Prueba from "../context/Prueba"
 
 function App() {
@@ -30,6 +28,7 @@ function App() {
             <Route path="/comentarios" element={<Comentarios />} />
             <Route path="/pokemoncontext" element={<PokemonContext />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/forum" element={<Forum/>} />
           </Routes>
         </Provider>
     </div>

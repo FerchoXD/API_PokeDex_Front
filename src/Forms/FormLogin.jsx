@@ -21,7 +21,7 @@ function FormLogin() {
         const formData = new FormData(form.current);
         const username = formData.get('name')
         //console.log('http://localhost:8080/trainer/'+username)
-        fetch('http://localhost:8080/trainer/search/'+username, {
+        fetch('http://localhost:8080/trainer/search/' + username, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -38,18 +38,18 @@ function FormLogin() {
                 console.log(user.userPassword);
                 //console.log(data)
 
-                if(data.status != 500){
-                    if(user.userPassword == data.data.password){
+                if (data.status != 500) {
+                    if (user.userPassword == data.data.password) {
                         navigate("/home")
-                    }else{
+                    } else {
                         navigate("*")
                     }
-                }else{
+                } else {
                     navigate("*")
                     console.log("Usuario no encontrado")
                 }
 
-                
+
             })
             .catch(err => console.error(err))
     }
@@ -76,31 +76,34 @@ function FormLogin() {
 
     return (
         <>
-            <div className='container'>
-                <form className="form" id="form" onSubmit={handleSubmit} ref={form}>
+            <div>
+                <form className="form-control-plaintext" id="form" onSubmit={handleSubmit} ref={form}>
+                    <div className='container'>
+                        <div className='h1'>Inicio de Sesión
+                            <h5>Ingresa tu nombre de usuario: </h5>
+                            <input className='input' type="text"
+                                onChange={handleChangeName}
+                                name='name'
+                                id='name'
+                                placeholder='Escriba un nombre de usuario'
+                                required />
 
-                    <label>Ingresa tu nombre de usuario: </label>
-                    <input type="text"
-                        onChange={handleChangeName}
-                        name='name'
-                        id='name'
-                        placeholder='Write a username'
-                        required />
+                            <h5>Ingresa una contraseña segura:</h5>
+                            <input className='input' type="password"
+                                onChange={handleChangePassword}
+                                name='password'
+                                id='password'
+                                placeholder='Escriba una contraseña'
+                                required />
 
-                    <label>Ingresa una contraseña segura:</label>
-                    <input type="password"
-                        onChange={handleChangePassword}
-                        name='password'
-                        id='password'
-                        placeholder='Write a safe password'
-                        required />
+                            <input className='button' type="submit" placeholder='login' />
 
-                    <input type="submit" placeholder='login' />
-
-                    <Link to="/Register">
-                        <p><span>
-                            You do not have an account?</span></p>
-                    </Link>
+                            <Link to="/Register">
+                                <p><span><h6>
+                                    ¿No tienes todavía una cuenta?</h6></span></p>
+                            </Link>
+                        </div>
+                    </div>
 
                 </form>
 
