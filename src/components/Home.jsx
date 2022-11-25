@@ -1,87 +1,82 @@
-import Inicio from "../components/Inicio"
-import Novedad1 from "../images/Novedad1.png"
-import Novedad2 from "../images/Novedad2.jpg"
-import Novedad3 from "../images/Novedad3.jpg"
-import LogoPikachu from "../images/PokeLogo.png"
-import "../styles/Bodyhome.css"
-import "../styles/Header.css"
-import "../styles/Navbar.css"
-import "../styles/logo.css"
+import Wikemon from '../images/Wikemon.png'
+import Banner from '../images/banner.jpg'
+import About from '../images/about_img.png'
 import { Link } from "react-router-dom"
-import React, {useContext} from "react"
-import PokemonContext from "../context/PokemonContext"
-
+import '../styles/home/css/bootstrap.min.css'
+import '../styles/home/css/style.css'
+import '../styles/home/css/responsive.css'
 
 function Home() {
-    const {value, setValue} = useContext (PokemonContext)
     return (
-        <>
-<div className="header">
-        <div className="logo">
-            <div className="titulo">
-                <h1>WiKEMON</h1>
-                <p>Todo sobre pokemon...</p>
-            </div>
-            <div className="logoimg">
-            <img src={LogoPikachu}/>
-            </div>
-        </div>
+          <div class="wrapper">
+          <div id="content">
 
-        <div className="navbar">
-        <div className="buscador">
-            <div className="inputs">
-                <input type="text" placeholder="Ingresa el pokemon a buscar"/>
+      <header>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="full">
+                                <a class="logo" href="index.html"><img src={Wikemon} alt="#" /></a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="full">
+                                <div class="right_header_info">
+                                    <ul>x
+                                    
+                                        <li class="dinone"><Link to="/">Crear Pokémon</Link></li>
+                                        <li class="dinone"><Link to="/">Fan Fiction</Link></li>
+                                        <li class="dinone"><Link to="/comentarios">Comentarios</Link></li>
+                                        <li class="dinone"><Link to="/">Foro</Link></li>
+                                        <li class="dinone"><Link to="/">Iniciar sesión</Link></li>
+
+                                        <li class="dinone">ㅤㅤㅤㅤㅤㅤ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="slider_section banner_bg">
+                <img src={Banner}/>
+                <div class="container">
+                    <center><div class="text_box">
+                    <h1 class="GFG">Bienvenido</h1>
+                        <h2 class="GFG">Un saludo, en esta wiki encontrarás todo lo relacionado a Pokémon:<br/> 
+                Información, entretenimiento y demás. Esperemos tengas buena estancia aquí. ¡Explore!</h2>
+                    </div></center>
+                </div>
             </div>
-        </div>
 
-        <div className="opciones">
-            <nav className="nav">
-                <ul>
-                    <li><Link to="/">Crear Pokemon</Link></li>
-                    <li><Link to="/">Fan Fictions</Link></li>
-                    <li><Link to="/">Crear Pokemon</Link></li>
-                    <li><Link to="/">Consejos</Link></li>
-                    <li><Link to="/">Foro</Link></li>
-                </ul>
-            </nav>
-        </div>
-
+            <div id="about" class="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="about_box">
+                                <h2 class="GFG">Novedades</h2>
+                                <p class="GFG">Atrapa, combate y entrena Pokémon en la región de Paldea, una vasta tierra llena de lagos, cimas montañosas, páramos, poblaciones pequeñas y grandes ciudades. Explora un mundo completamente abierto a tu propio paso y recorre a través de la tierra, el agua y el aire a lomos del Pokémon legendario Koraidon, que puede cambiar de forma en Pokémon Scarlet, o sobre el Pokémon legendario Miraidon, que puede cambiar de forma en Pokémon Violet. Elige entre Sprigatito, Fuecoco o Quaxly para que sea tu primer compañero Pokémon antes de lanzarte en tu aventura a través de Paldea.</p>
+                                <a href="https://scarletviolet.pokemon.com/es-mx/" >¡Descubre más de los nuevos juegos Pokémon Scarlet y Pokémon Violet!</a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="about_img">
+                                <figure><img src={About} alt="#" /></figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      <footer>
+                        <div class="copyright">
+                            <div class="container">
+                                <p>©2022 Derechos reservados.</p>
+                                <br/>
+                            </div>
+                        </div>
+                </footer>
     </div>
-</div>
-    <div className="container">
-                <div className="aside">
-                <div className="subtitulo"><h2>Novedades</h2></div>
-                        <div className="novedad">
-                            <img className="novedadimg" src={Novedad1}></img>
-                            <p>Los episodios de DP Battle Dimension se añaden a TV Pokemon</p>
-                        </div>
-                        <div className="novedad">
-                            <img className="novedadimg" src={Novedad2}></img>
-                            <p>Consigue a Eternatus variocolor en Pokemon Espada o Escudo</p>
-                        </div>
-                        <div className="novedad">
-                            <img className="novedadimg" src={Novedad3}></img>
-                            <p>Consigue a Eternatus variocolor en Pokemon Espada o Escudo</p>
-                        </div>
-                </div>
-
-                <div className="contenido">
-                    <>
-                    <Inicio></Inicio>
-                    </>
-                </div>
-                <div>
-                    {value}
-                </div>
-                <button onClick={()=>setValue({
-                    name: "Charizard",
-                    specie: "Fuego"
-                })}></button>
-            </div>
-
-
-
-    </>
+    </div>
      );
 }
 

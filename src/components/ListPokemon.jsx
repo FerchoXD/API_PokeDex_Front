@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react'
 import Pokemon from './Pokemon'
-import '../styles/PokeList.css' 
 
 var requestOptions = {
     method: 'GET',

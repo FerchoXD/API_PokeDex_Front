@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import "../styles/Input.css"
 import PokemonContext from '../context/PokemonContext.js';
 function Input ({ type, label, classname, name, id, placeholder, onclick, onblur }) {
     //const {value, setValue} = useContext(PokemonContext)

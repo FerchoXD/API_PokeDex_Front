@@ -25,25 +25,6 @@
     background: rgba(5, 7, 12, 0.75);
     color: #fff;
 }
-
-input{
-    margin-bottom: 15px;
-}
-
-input:not(.sub, .wrong){
-    background-color: transparent;
-    border: none;
-    border-bottom: solid 1px white;
-    color: rgb(255, 255, 255);
-}
-
-input:not(.sub):hover{
-    border-bottom: solid 1px rgb(255, 218, 95);
-    cursor: pointer;
-    transition: all 200ms;
-
-}
-
 .sub{
     background-color: rgb(93, 190, 93);
     border-radius: 12px;
@@ -58,13 +39,4 @@ input:not(.sub):hover{
     background-color: rgb(64, 187, 64);
     box-shadow: 1px 1px 13px rgba(107, 217, 118, 0.54);
     transition: all 200ms;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button{
-    -webkit-appearance: none;
-}
-
-p{
-    display: block;
 }

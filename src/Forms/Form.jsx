@@ -2,7 +2,6 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState, useRef } from "react"
 import Input from "../Forms/Input";
-import "../styles/FormPokemon.css"
 //import Prueba from "../context/Prueba"
 //import UserContext from "../context/UserContext"
 import { useDispatch } from 'react-redux';

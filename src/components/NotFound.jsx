@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 function NotFound() {
     return ( <>
-    <Link to="/home">
+    <Link to="/">
  <svg height="0.8em" width="0.8em" viewBox="0 0 2 1" preserveAspectRatio="none">
   <polyline
         fill="none" 

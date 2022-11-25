@@ -1,4 +1,4 @@
-import Form from "../Forms/Form";
+
 
 function CPokemons() {
     return ( 

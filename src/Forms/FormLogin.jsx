@@ -2,7 +2,6 @@ import React from 'react'
 
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useRef } from "react"
-import "../styles/FormLogin.css"
 
 function FormLogin() {
 

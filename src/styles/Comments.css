@@ -1,0 +1,40 @@
+.todo {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../images/background_comments.jpg");
+}
+
+.comment {
+    width: 360px;
+    height: min-content;
+    padding: 20px;
+    border-radius: 12px;
+    background: #fcb7af;
+    color: black;
+}
+
+.comment h1 {
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+.comment form {
+    font-size: 20px;
+}
+
+.comment form .form-group {
+    margin-bottom: 12px;
+}
+
+.comment form .form-control {
+    margin-bottom: 12px;
+    color: black;
+}
+
+.comment form input[type="submit"] {
+    font-size: 20px;
+    margin-top: 15px;
+    background-color: #51ec7a;
+}
