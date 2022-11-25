@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useState, useRef } from "react"
 import { useSelector } from 'react-redux';
+import Input from '../Forms/Input'
 import axios from 'axios';
 import React from 'react';
 
@@ -12,11 +13,14 @@ function Prueba() {
     const pokemon = useSelector(state => state.pokemon)
     const navigate = useNavigate()
     let id = pokemon.id;
-    let url = 'http://localhost:8080/file/pokemon/' + id;
-    const InsertarArchivos = async () => {
+    //console.log(id)
+    const InsertarArchivos = (e) => {
+        e.preventDefault();
+        let url = 'http://localhost:8080/file/pokemon/' + id;
         const f = new FormData();
-        f.append('file', archivos[0])
-        await axios.put(url, f)
+        f.append('file', archivos[0]);
+        
+        axios.put(url, f)
             .then(response => {
                 console.log(response)
                 alert('Pokemon creado');
@@ -30,7 +34,7 @@ function Prueba() {
                     <div className='container'>
                         <div className='h1'>Imagen del nuevo pokemon
                             <div>
-                                <input className='input' type="file" name='files' multiple placeholder='Sube un archivo' onChange={(e) => SubirArchivos(e.targetfiles)}></input>
+                                <input className='input' type="file" name='files' multiple placeholder='Sube un archivo' onChange={(e) => SubirArchivos(e.target.files)}></input>
                                 <button className='button' onClick={InsertarArchivos}>Subir imagen</button>
                             </div>
                         </div>

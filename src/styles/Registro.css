@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    color: black;
+    background-color: rgb(240,280,140);
+    box-sizing: border-box;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.cover-2{
+    background-color:	rgb(255,0,0);
+    width: 30em;
+    height: 35em;
+    position: relative;
+    border-radius: 1em;
+    box-shadow: 0 0.188em 1.550em black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.alt-registrarse{
+    width: 80%;
+    height: 3em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.alt-registrarse div{
+    border-radius: 0.25em;
+    background-position: center;
+    background-color: black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.google-2{background-image: url("../assets/google.png");}
+
+.facebook-2{background-image: url("../assets/face.png");}
+
+input{
+    border: none;
+    background-color: rgb(253, 247, 247);
+    height: 4em;
+    width: 80%;
+    border-radius: 0.25em;
+    padding: 2em;
+}
+
+input:focus{outline-color: #8B0000;}
+
+.login-btn-2:hover{ transform: scale(1.25);}
+
+.text-2{
+    position: relative;
+    bottom: -2em;
+}
+
+.hide-2{display: none;}
+
+.login-popup-2{
+    position: absolute;
+    height: 30em;
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25em;
+    background-color: black;
+    color: white;
+    bottom:0;
+    transform: scale(1);
+    transform: 1.5s;
+}
+
+label{
+    background-color: transparent;
+}

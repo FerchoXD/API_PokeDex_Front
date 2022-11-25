@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "../styles/iniciarS.css"
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useRef } from "react"
 
@@ -75,9 +75,9 @@ function FormLogin() {
 
     return (
         <>
-            <div>
+            <div className="cover">
                 <form className="form-control-plaintext" id="form" onSubmit={handleSubmit} ref={form}>
-                    <div className='container'>
+                
                         <div className='h1'>Inicio de Sesión
                             <h5>Ingresa tu nombre de usuario: </h5>
                             <input className='input' type="text"
@@ -95,14 +95,13 @@ function FormLogin() {
                                 placeholder='Escriba una contraseña'
                                 required />
 
-                            <input className='button' type="submit" placeholder='login' />
-
+                            <div className="login-btn" type="submit" placeholder='login'>Iniciar sesion</div> 
                             <Link to="/Register">
                                 <p><span><h6>
                                     ¿No tienes todavía una cuenta?</h6></span></p>
                             </Link>
                         </div>
-                    </div>
+                    
 
                 </form>
 

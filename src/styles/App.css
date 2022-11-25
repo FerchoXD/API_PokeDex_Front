@@ -1,6 +1,8 @@
-.btn3{
-  background-color: rgba(248, 3, 3, 0.944);
-  border-radius: 20px;
-  width: 250px;
-  height: 30px;
+.App{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
 }

@@ -12,7 +12,6 @@ import Picture from "../components/Picture";
 import PokemonContext from "../context/PokemonContext";
 import Forum from "../components/Forum";
 import Prueba from "../context/Prueba"
-import PruebaV from "../components/PruebaV";
 
 function App() {
   return (
@@ -30,7 +29,6 @@ function App() {
             <Route path="/pokemoncontext" element={<PokemonContext />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/forum" element={<Forum/>} />
-            <Route path="/pv" element={<PruebaV/>} />
           </Routes>
         </Provider>
     </div>
