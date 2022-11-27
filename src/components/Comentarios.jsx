@@ -2,21 +2,22 @@ import { useState, useEffect, useContext, useRef } from "react";
 import "../styles/Comments.css";
 
 function Comentarios() {
-  const [autor, setAutor] = useState("");
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const form = useRef(null);
+  let autor = localStorage.getItem('name')
 
   function handleSubmit(e) {
     e.preventDefault();
-
     const formData = new FormData(form.current);
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
+      autor: autor,
       title: formData.get("title"),
       description: formData.get("description"),
     });
@@ -32,11 +33,6 @@ function Comentarios() {
       .then((response) => response.json())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
-  }
-
-  function handleChangeAutor(e) {
-    const value = e.target.value;
-    setAutor(value);
   }
 
   function handleChangeTitle(e) {

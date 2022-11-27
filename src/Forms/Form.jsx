@@ -52,7 +52,7 @@ function Form() {
                 //console.log(id)
                 //console.log(name)
                 if (data.success == true) {
-                    alert("Usuario creado")
+                    alert("Pokemon Creado")
                     //context(id, name)
                     dispatch({
                         type: "ACTION01",

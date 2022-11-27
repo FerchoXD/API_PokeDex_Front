@@ -20,13 +20,11 @@ function App() {
           <Routes>
             <Route path="/picture" element={<Picture />} />
             <Route path="/crear" element={<CPokemons />} />
-            <Route path="/prueba" element={<Prueba />} />
             <Route path="/" element={<Login />} />
             <Route path="/Register" element={<Register />} />
             <Route path='/home' element={<Home />} />
             <Route path="/pokemons" element={<ListPokemons />} />
             <Route path="/comentarios" element={<Comentarios />} />
-            <Route path="/pokemoncontext" element={<PokemonContext />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/forum" element={<Forum/>} />
           </Routes>

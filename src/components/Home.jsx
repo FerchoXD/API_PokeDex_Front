@@ -24,11 +24,10 @@ function Home() {
                                 <div class="right_header_info">
                                     <ul>x
                                     
-                                        <li class="dinone"><Link to="/">Crear Pokémon</Link></li>
+                                        <li class="dinone"><Link to="/crear">Crear Pokémon</Link></li>
                                         <li class="dinone"><Link to="/">Fan Fiction</Link></li>
                                         <li class="dinone"><Link to="/comentarios">Comentarios</Link></li>
                                         <li class="dinone"><Link to="/">Foro</Link></li>
-                                        <li class="dinone"><Link to="/">Iniciar sesión</Link></li>
 
                                         <li class="dinone">ㅤㅤㅤㅤㅤㅤ</li>
                                     </ul>
