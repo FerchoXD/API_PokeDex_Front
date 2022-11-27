@@ -1,0 +1,95 @@
+.todo_cards{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container_card{
+    max-width: 1300px;
+    width: 100%;
+    margin: auto;
+    padding: 0px 20px;
+}
+
+.body_cards{
+    background-color: rgb(199, 228, 253);
+    color:black
+}
+
+.section{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h1{
+    font-size: 50px;
+    line-height: 60px;
+    text-align:center;
+    margin-bottom: 40px;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card_comment{
+    flex: 0 0 calc(33.33%-20px);
+    max-width: calc(33.33%-20px);
+    width: 90%;
+    background: rgb(183, 240, 150);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card_comment:hover{
+    border-color: rgb(247, 247, 247);
+}
+
+.btn2{
+    color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+    background: rgb(255, 138, 79);
+    border-radius: 12px;
+    width: 30vh;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: .3s;
+    border: 1px solid rgb(16, 16, 16);
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.btn2:hover{
+    background: green;
+}
+
+@media(max-width: 969px){
+    ::selection{
+        padding: 20px 0px;
+    }
+    h1{
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .card_comment{
+        flex: 0 0 calc(50% - 20px);
+        max-width: calc(50%-20px);
+    }
+}
+
+@media(max-width: 600px){
+    .card_comment{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

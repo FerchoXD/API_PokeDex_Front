@@ -24,14 +24,18 @@ function Login() {
     const formData = new FormData(form.current)
     const username = formData.get('name')
     const userPassword = formData.get('password')
-    fetch('http://localhost:8080/trainer/search/' + username, {
+    fetch('http://localhost:8080/trainer/search/' + username ,{
+      
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json'
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*' 
       },
       redirect: 'follow'
     })
       .then(res => res.json())
+      .then(handleResponse)
       .then(data => {
         let status = data.stuatus
         if (status !== 500) {
@@ -64,15 +68,15 @@ function Login() {
   }
 
   return (
-    <div className="todo">
+    <div className="todo_log">
       <form onSubmit={handleSubmit} ref={form} className="login">
         <div className="center">
           <div className="logo">
             <img src={Logo} />
           </div>
-          <label className="label-welcome">
+          <h1 className="label-welcome">
             Bienvenido
-          </label>
+          </h1>
         </div>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Usuario</label>

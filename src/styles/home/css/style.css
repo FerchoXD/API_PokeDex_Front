@@ -31,14 +31,20 @@
      padding: 0 0 10px 0;
      font-weight: normal;
      line-height: normal;
-     color: #111111;
+     color: rgb(0, 0, 0);
+ 
+    text-shadow:
+   -1px -1px 0 rgb(255, 255, 255),  
+    1px -1px 0 rgb(255, 255, 255), 
+   -1px 1px 0 rgb(255, 255, 255), 
+    1px 1px 0 rgb(255, 255, 255);
      margin: 0 
 }
  h1 {
      font-size: 24px 
 }
  h2 {
-     font-size: 22px 
+     font-size: 26px 
 }
  h3 {
      font-size: 18px 
@@ -112,6 +118,7 @@
      padding: 0;
 }
  .form-control:focus {
+    
      border-color: #ffffff !important;
      box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
 }
@@ -226,7 +233,7 @@
  .main_bt:hover, .main_bt:focus {
      background: #114c7d;
      border-left: solid #38c8a8 5px;
-     color: #fff;
+     color: rgb(223, 206, 206);
 }
  .margin_top_50 {
      margin-top: 50px;

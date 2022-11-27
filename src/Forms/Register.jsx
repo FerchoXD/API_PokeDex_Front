@@ -66,15 +66,15 @@ function Register() {
   }
 
   return (
-    <div className="todo">
+    <div className="todo_log">
       <form className="login" onSubmit={handleChangeSubmit} ref={form}>
         <div className="center">
           <div className="logo">
             <img src={Logo} />
           </div>
-          <label className="label-welcome">
+          <h1 className="label-welcome">
             Registrate
-          </label>
+          </h1>
         </div>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Usuario</label>
@@ -89,6 +89,7 @@ function Register() {
           <input type="password" className="form-control" id="age" name="age" onChange={handleChangeAge} />
         </div>
         <button type="submit" className="btn btn-dark w-100">Submit</button>
+        <Link to="/" className="redirect" >Ya tienes una cuenta? </Link>
         <br />
       </form>
 

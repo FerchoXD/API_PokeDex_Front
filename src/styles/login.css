@@ -1,11 +1,12 @@
-.todo {
+.todo_log {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-image: url("../images/pokelegends.png");
-}
+    justify-content: center; 
+    background: rgb(255,119,245);
+    background: linear-gradient(90deg, rgba(255,119,245,1) 0%, rgba(255,70,70,1) 50%, rgba(255,200,122,1) 100%);
 
+}
 .login {
     width: 400px;
     height: min-content;

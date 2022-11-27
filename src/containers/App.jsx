@@ -12,6 +12,9 @@ import Picture from "../components/Picture";
 import PokemonContext from "../context/PokemonContext";
 import Forum from "../components/Forum";
 import Prueba from "../context/Prueba"
+import Cards from "../components/Cards";
+import CardsPokemon from "../components/Card_pokemon";
+import TraerPokemons from "../components/traerPokemons";
 
 function App() {
   return (
@@ -27,6 +30,8 @@ function App() {
             <Route path="/comentarios" element={<Comentarios />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/forum" element={<Forum/>} />
+            <Route path="/pokemon" element={<TraerPokemons/>} />
+            <Route path="/coments" element={<Cards/>} />
           </Routes>
         </Provider>
     </div>
