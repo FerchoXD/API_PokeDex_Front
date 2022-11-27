@@ -1,22 +1,22 @@
 import "../styles/NotFound.css"
 import PikachuNotFound from "../images/pikachu-5992504_1280.png"
-import { Link } from "react-router-dom"
+import { Link} from "react-router-dom"
 import "../styles/notfound.css"
+import Login from "../Forms/Login"
 
 function NotFound() {
+
     return (<>
-    <div className="body">
-    <img width="380px" height="500px" src={PikachuNotFound}>
-</img>
-<div className="message-box">
-  <h1>404</h1>
-  <p>Page not found</p>
-  <div className="buttons-con">
-    <div className="action-link-wrap">
-      <Link to="/">Go to login</Link>
+    <div className="body_notfound">
+     <div class="container">
+        <img class="ops" src={PikachuNotFound} />
+        <br />
+        <h3>Error 404</h3>
+        <br />
+        <h3>Lo sentimos esta pagina no fue encontrada !!</h3>
+        <br />
+        <Link to="/" class="buton">Regresar</Link>
     </div>
-  </div>
-</div>
     </div>
 
     </>); 

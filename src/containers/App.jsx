@@ -5,8 +5,8 @@ import Home from '../components/Home';
 import NotFound from '../components/NotFound';
 import Comentarios from "../components/comentarios";
 import ListPokemons from "../components/ListPokemon";
-import FormLogin from "../Forms/FormLogin";
-import FormRegister from "../Forms/FormRegister"
+import Login from "../Forms/Login";
+import Register from "../Forms/Register";
 import CPokemons from "../components/CPokemon";
 import Picture from "../components/Picture";
 import PokemonContext from "../context/PokemonContext";
@@ -21,8 +21,8 @@ function App() {
             <Route path="/picture" element={<Picture />} />
             <Route path="/crear" element={<CPokemons />} />
             <Route path="/prueba" element={<Prueba />} />
-            <Route path="/" element={<FormLogin />} />
-            <Route path="/Register" element={<FormRegister />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/Register" element={<Register />} />
             <Route path='/home' element={<Home />} />
             <Route path="/pokemons" element={<ListPokemons />} />
             <Route path="/comentarios" element={<Comentarios />} />

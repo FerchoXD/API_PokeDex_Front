@@ -4,7 +4,7 @@ import About from '../images/about_img.png'
 import { Link } from "react-router-dom"
 import '../styles/home/css/bootstrap.min.css'
 import '../styles/home/css/style.css'
-import '../styles/home/css/responsive.css'
+import '../styles/home/css/responsive.css' 
 
 function Home() {
     return (
