@@ -35,9 +35,8 @@ function Login() {
       redirect: 'follow'
     })
       .then(res => res.json())
-      .then(handleResponse)
       .then(data => {
-        let status = data.stuatus
+        let status = data.status
         if (status !== 500) {
           let name = data.data.name
           let pass = data.data.password
@@ -56,7 +55,7 @@ function Login() {
       Salvar(name)
       //navigate("/home")
     }else{ 
-      alert("Usuario no existen")
+      alert("Usuario no existente")
       navigate("/")
     }
   }

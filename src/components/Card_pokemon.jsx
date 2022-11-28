@@ -1,11 +1,11 @@
 import React from "react";
 
-const Cards = ({id, name, image, type})=>{
+const Cards = ({name, image, type, species})=>{
     const style = `thumb-container ${type}`
     return(
         <div className={style}>
             <div className="number">
-                <small>#0{id}</small>
+                <small>#0{species}</small>
             </div>
             <img src={image} alt={name} />
             <div className="detail-wrapper">

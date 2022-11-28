@@ -15,6 +15,7 @@ import Prueba from "../context/Prueba"
 import Cards from "../components/Cards";
 import CardsPokemon from "../components/Card_pokemon";
 import TraerPokemons from "../components/traerPokemons";
+import ListComment from "../components/ListComment";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
             <Route path="/forum" element={<Forum/>} />
             <Route path="/pokemon" element={<TraerPokemons/>} />
-            <Route path="/coments" element={<Cards/>} />
+            <Route path="/coments" element={<ListComment/>} />
           </Routes>
         </Provider>
     </div>

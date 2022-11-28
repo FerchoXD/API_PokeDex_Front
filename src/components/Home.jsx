@@ -24,7 +24,7 @@ function Home() {
                                 <div class="right_header_info">
                                     <ul>x
                                     
-                                        <li class="dinone"><Link to="/pokemon">Pokemons</Link></li>
+                                        <li class="dinone"><Link to="/pokemons">Pokemons</Link></li>
                                         <li class="dinone"><Link to="/crear">Crear pokemon</Link></li>
                                         <li class="dinone"><Link to="/">Fan Fiction</Link></li>
                                         <li class="dinone"><Link to="/coments">Comentarios</Link></li>

@@ -23,7 +23,7 @@ function Prueba() {
             .then(response => {
                 console.log(response)
                 alert('Pokemon creado');
-                navigate('/')
+                navigate('/Home')
             }).catch(error => { console.log(error) })
     }
     return (
