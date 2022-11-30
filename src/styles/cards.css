@@ -1,8 +1,15 @@
+html{
+}
+
 .todo_cards{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+}
+
+.contenedor-comentarios{
+    background-color: rgb(0, 0, 0);
 }
 
 .container_card{
@@ -13,12 +20,34 @@
 }
 
 .body_cards{
-    background-color: rgb(199, 228, 253);
-    color:black
+    background-color: rgb(182, 221, 255);   
+    color:black;
+    align-items: center;
+}
+
+.btn-comments{
+    border-radius: 15px;
+    width: 250px;
+    height: 30px;
+    margin-top: 30px;
+    background-color: yellow;
+}
+
+.contenedor-btn{
+    background-color: rgb(182, 221, 255);
+}
+
+.p-text{
+    margin: 0;
+    background-color: rgb(182, 221, 255);
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 .section{
-    min-height: 100vh;
+    min-height: 250PX;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,6 +58,7 @@
     line-height: 60px;
     text-align:center;
     margin-bottom: 40px;
+    background-color: red;
 }
 
 .cards{
@@ -44,7 +74,6 @@
     background: rgb(183, 240, 150);
     border-radius: 10px;
     padding: 20px;
-    margin-bottom: 20px;
 }
 
 .card_comment:hover{
@@ -61,12 +90,9 @@
     height: 40px;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
     cursor: pointer;
     transition: .3s;
     border: 1px solid rgb(16, 16, 16);
-    margin-top: 15px;
-    margin-bottom: 20px;
 }
 
 .btn2:hover{

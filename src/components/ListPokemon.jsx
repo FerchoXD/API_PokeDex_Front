@@ -15,7 +15,7 @@ function ListPokemon() {
     }, [])
 
     return (
-        <div class="patterns pt1">
+        <div class="">
 
             <center><h1>Lista de Pokémon</h1></center>
             <div class="PokeList">
