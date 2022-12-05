@@ -41,30 +41,48 @@ function Form() {
 
         fetch('http://localhost:8080/pokemon/',
             requestOptions)
-            .then(res => res.json())
+            .then(res => {
+                switch (res.status) {
+                    case 200:
+                        alert("Éxito")
+                        break;
+                    case 201:
+                        alert("201. Registro exitoso")
+                        return res.json()
+                        break;
+                    case 400:
+                        alert("Error 400: Favor de ingresar bien los datos")
+                        break;
+                    case 401:
+                        alert("Error 401: Respuesta no autenticada. No autorizado")
+                        break;
+                    case 403:
+                        alert("Error 403: Lo sentimos, pero no tiene los permisos necesarios")
+                        break;
+                    case 404:
+                        alert("Error 404: No encontrado")
+                        break;
+                    case 500:
+                        alert("Error 500: El nombre de usuario ya existe")
+                        return res.json()
+                        break;
+                }
+            })
             .then(data => {
-                console.log(data.data.id)
-                console.log(data.success)
                 console.log(data)
-                console.log(data.data.name)
-                let id = data.data.id
-                let name = data.data.name
-                //console.log(id)
-                //console.log(name)
-                if (data.success == true) {
-                    alert("Pokemon Creado")
-                    //context(id, name)
+                if (data.httpStatus === 'CREATED') {
+                    alert("Pokemon Creado Correctamente")
                     dispatch({
                         type: "ACTION01",
                         value: {
-                            id: id,
-                            name: name
+                            id: data.data.id,
+                            name: data.data.name
                         }
                     })
                     navigate("/Picture")
                 } else {
-                    alert("Usuario no creado")
-                    //avigate("*")
+                    alert("Error al crear Pokemon")
+                    navigate("/crear")
                 }
             })
 

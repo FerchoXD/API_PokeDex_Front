@@ -2,6 +2,7 @@ import "../styles/login.css"
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../images/Wikemon.png"
 import { useRef, useState } from "react";
+import { StatusCode } from "react-http-status-code";
 
 function Register() {
   const [name, setName] = useState("")
@@ -50,20 +51,47 @@ function Register() {
     };
 
     fetch("http://localhost:8080/trainer/", requestOptions)
-      .then(response => response.json())
+      .then(response => {
+        console.log(response)
+        switch (response.status) {
+          case 200:
+            alert("Éxito")
+            break;
+          case 201:
+            alert("201. Registro exitoso")
+            return response.json()
+            break;
+          case 400:
+              alert("Error 400: Favor de ingresar bien los datos")
+            break;
+          case 401:
+              alert("Error 401: Respuesta no autenticada. No autorizado")
+            break;
+          case 403:
+              alert("Error 403: Lo sentimos, pero no tiene los permisos necesarios")
+            break;
+          case 404:
+              alert("Error 404: No encontrado")
+              break;
+          case 500:
+              alert("Error 500: El nombre de usuario ya existe")
+              return response.json()
+              break; 
+        }
+      })
+      
       .then(data => {
-        let status = data.status
-        if(status != 500){
+        console.log(data)
+        if(data.httpStatus === 'CREATED'){
           alert("Usuario Creado Correctamente")
           navigate("/")
         }else{
-          alert("Usario NO Creado")
+          alert("Error al registrarse")
           navigate("/Register")
         }
       })
       .catch(error => console.log('error', error));
-
-  }
+    }
 
   return (
     <div className="todo_log">

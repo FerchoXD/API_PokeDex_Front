@@ -1,11 +1,14 @@
 import { useState, useEffect, useContext, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Comments.css";
+import { StatusCode } from "react-http-status-code";
 
 function Comentarios() {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+  const navigate = useNavigate();
   const form = useRef(null);
   let autor = localStorage.getItem('name')
 
@@ -30,8 +33,45 @@ function Comentarios() {
     };
 
     fetch("http://localhost:8080/comment", requestOptions)
-      .then((response) => response.json())
-      .then((result) => console.log(result))
+      .then((response) => {
+        console.log(response)
+        switch (response.status) {
+          case 200:
+              alert("Éxito")
+              break;
+          case 201:
+              alert("201. Comentario publicado")
+              return response.json()
+              break;
+          case 400:
+              alert("Error 400: Favor reintente de nuevo")
+              break;
+          case 401:
+              alert("Error 401: Respuesta no autenticada. No autorizado")
+              break;
+          case 403:
+              alert("Error 403: Lo sentimos, pero no tiene los permisos necesarios")
+              break;
+          case 404:
+              alert("Error 404: No encontrado")
+              break;
+          case 500:
+              alert("Error 500: El nombre de usuario ya existe")
+              return response.json()
+              break;
+      }
+      })
+      .then((data) => 
+      {
+        //console.log(data)
+                if (data.httpStatus === 'CREATED') {
+                    alert("Comentario creado Correctamente")
+                    navigate("/coments")
+                } else {
+                    alert("Error al crear comentario")
+                    navigate("/coments")
+                }
+      })
       .catch((error) => console.log("error", error));
   }
 

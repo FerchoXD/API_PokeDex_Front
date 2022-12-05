@@ -1,5 +1,7 @@
-import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { Provider } from 'react-redux';
+//import  {ProtectedRoute} from "../components/ProtectedRoute";
+import { useState } from "react";
 import store from "../reducer/store";
 import Home from '../components/Home';
 import NotFound from '../components/NotFound';
@@ -17,26 +19,27 @@ import CardsPokemon from "../components/Card_pokemon";
 import TraerPokemons from "../components/traerPokemons";
 import ListComment from "../components/ListComment";
 
+
 function App() {
   return (
     <div className="App">
-        <Provider store={store}>
-          <Routes>
-            <Route path="/picture" element={<Picture />} />
-            <Route path="/crear" element={<CPokemons />} />
-            <Route path="/" element={<Login />} />
-            <Route path="/Register" element={<Register />} />
-            <Route path='/home' element={<Home />} />
-            <Route path="/pokemons" element={<ListPokemons />} />
-            <Route path="/comentarios" element={<Comentarios />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/forum" element={<Forum/>} />
-            <Route path="/pokemon" element={<TraerPokemons/>} />
-            <Route path="/coments" element={<ListComment/>} />
-          </Routes>
-        </Provider>
+      <Provider store={store}>
+        <Routes>
+          <Route path="/crear" element={<CPokemons />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/picture" element={<Picture />} />
+          <Route path="/pokemons" element={<ListPokemons />} />
+          <Route path="/comentarios" element={<Comentarios />} />
+          <Route path="/forum" element={<Forum />} />
+          <Route path="/pokemon" element={<TraerPokemons />} />
+          <Route path="/coments" element={<ListComment />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Provider>
     </div>
   );
 }
 
-export default App
+export default App;
