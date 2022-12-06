@@ -1,20 +1,21 @@
+import { useRef } from "react"
 import { useContext } from "react"
 //import UserContext  from "../context/UserContext"
-import PokemonContext from "./PokemonContext";
+import UserContext from "./UserContext"
 
 const Prueba = () =>{
     //const {user} = useContext(UserContext);
-    const {pokemon} = useContext(PokemonContext)
+    const {user} = useContext(UserContext)
     return(
         <>
             <h1>Component Prueba</h1>
-            <h2>Pokemon: {JSON.stringify(pokemon)}</h2>
+            <h2>User: {JSON.stringify(user)}</h2>
             <div>
-                {pokemon && <p>Hola soy el pokemon {pokemon.name}</p>}
+                {user && <p>Hola soy el user {user.name}</p>}
             </div>
-            <h2>Pokemon: {JSON.stringify(pokemon)}</h2>
+            <h2>User: {JSON.stringify(user)}</h2>
             <div>
-                {pokemon && <p>Hola soy el pokemon {pokemon.id}</p>}
+                {user && <p>Hola soy el user {user.isLogged}</p>}
             </div>
         </>
         

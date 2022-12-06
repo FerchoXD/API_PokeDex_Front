@@ -25,13 +25,18 @@ function Login() {
     const formData = new FormData(form.current)
     const username = formData.get('name')
     const userPassword = formData.get('password')
-    fetch('http://localhost:8080/trainer/search/' + username ,{ 
-      method: 'GET',
+    var raw = JSON.stringify({
+      "email": username,
+      "password": userPassword
+    });
+    fetch('http://localhost:8080/login',{ 
+      method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*' 
+        'Access-Control-Allow-Origin': '*'  
       },
+      body: raw,
       redirect: 'follow'
     })
       .then(res => {
@@ -78,7 +83,6 @@ function Login() {
     if(password === pass){
       alert("Usuario existente")
       Salvar(name)
-      //navigate("/home")
     }else{ 
       alert("Contraseña incorrecta")
       navigate("/")
