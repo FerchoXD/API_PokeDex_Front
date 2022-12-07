@@ -29,6 +29,7 @@ function Login() {
       "nombreUsuario": username,
       "password": userPassword
     });
+    
     fetch('http://localhost:8080/auth/login',{ 
       method: 'POST',
       headers: {
@@ -40,21 +41,17 @@ function Login() {
       redirect: 'follow'
     })
       .then(res => {
-        console.log(res)
+        let status = res.status;
+        localStorage.setItem('status', status)
         switch (res.status) {
           case 200:
             alert("200. Inicio de sesión exitosa")
-            let response = {
-              "status": res.status,
-              "nombre": username,
-              "token": res.json()
-            }
-            return response;
+            return res.json();
             break;
           case 201:
               alert("Datos incorrectos")
               let status = false
-              return status
+              return res.json();
             break;
           case 400:
               alert("Error 400: Favor de ingresar bien los datos")
@@ -74,14 +71,13 @@ function Login() {
         }})
       .then(data => {
         console.log("-------")
-        console.log(data)
-        console.log(data.token.token)
+        //console.log(data)
         //console.log(data.httpStatus)
+        let status = localStorage.getItem('status')
         localStorage.setItem('token', data.token)
-        if (data.status === 200) {
-          let name = data.nombre
+        if (status == 200) {
           Salvar(name)
-        } else if (data.httpStatus === 500)
+        } else if (status == 500)
           alert("Usuario no existente")
         else 
           alert ('Datos incorrectos')

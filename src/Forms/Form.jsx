@@ -22,25 +22,26 @@ function Form() {
     function handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData(form.current);
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
+        let token = localStorage.getItem('token')
         var raw = JSON.stringify({
             "name": formData.get('name'),
             "species": formData.get('especie'),
             "type": formData.get('type'),
             "image": "null"
         });
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch('http://localhost:8080/pokemon/',
-            requestOptions)
+        console.log(token);
+        const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+        fetch(corsAnywhere + 'http://localhost:8080/pokemon',{
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                body: raw,
+                redirect: 'follow'
+            })
             .then(res => {
                 switch (res.status) {
                     case 200:

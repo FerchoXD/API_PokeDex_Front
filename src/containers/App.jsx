@@ -21,11 +21,14 @@ import ListComment from "../components/ListComment";
 
 import UserContext from "../context/UserContext";
 import LoginPrueba from "../Context/LoginPrueba";
+import TrainerContext from "../Context/TrainerContext";
 
 function App() {
-  const [user, setUser] = useState(null)
+  const trainerData = {
+    name: null
+  }
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <TrainerContext.Provider value={{ trainerData }}>
       <Provider store={store}>
         <Routes>
           <Route path="/crear" element={<CPokemons />} />
@@ -43,7 +46,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Provider>
-    </UserContext.Provider>
+    </TrainerContext.Provider>
   );
 }
 
