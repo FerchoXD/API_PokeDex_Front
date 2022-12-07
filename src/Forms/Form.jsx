@@ -23,6 +23,10 @@ function Form() {
         e.preventDefault();
         const formData = new FormData(form.current);
         let token = localStorage.getItem('token')
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer "+ token);
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Access-Control-Allow-Origin", "*");
         var raw = JSON.stringify({
             "name": formData.get('name'),
             "species": formData.get('especie'),
@@ -30,18 +34,13 @@ function Form() {
             "image": "null"
         });
         console.log(token);
-        const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
-        fetch(corsAnywhere + 'http://localhost:8080/pokemon',{
-                method: 'POST',
-                headers: {
-                    'Authorization': 'Bearer ' + token,
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                },
-                body: raw,
-                redirect: 'follow'
-            })
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+        fetch('http://localhost:8080/pokemon', requestOptions)
             .then(res => {
                 switch (res.status) {
                     case 200:

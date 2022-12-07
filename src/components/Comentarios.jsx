@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Comments.css";
-import { StatusCode } from "react-http-status-code";
+import { StatusCode } from "react-http-status-code";
 
 function Comentarios() {
 
@@ -15,12 +15,14 @@ function Comentarios() {
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(form.current);
-
+    let token = localStorage.getItem('token')
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", "Bearer " + token);
+    myHeaders.append("Access-Control-Allow-Origin", "*");
 
     var raw = JSON.stringify({
-      autor: autor,
+      name: autor,
       title: formData.get("title"),
       description: formData.get("description"),
     });
@@ -33,44 +35,43 @@ function Comentarios() {
     };
 
     fetch("http://localhost:8080/comment", requestOptions)
-      .then((response) => {
+      .then(response => {
         console.log(response)
         switch (response.status) {
           case 200:
-              alert("Éxito")
-              break;
+            alert("Éxito")
+            break;
           case 201:
-              alert("201. Comentario publicado")
-              return response.json()
-              break;
+            alert("201. Comentario publicado")
+            return response.json()
+            break;
           case 400:
-              alert("Error 400: Favor reintente de nuevo")
-              break;
+            alert("Error 400: Favor reintente de nuevo")
+            break;
           case 401:
-              alert("Error 401: Respuesta no autenticada. No autorizado")
-              break;
+            alert("Error 401: Respuesta no autenticada. No autorizado")
+            break;
           case 403:
-              alert("Error 403: Lo sentimos, pero no tiene los permisos necesarios")
-              break;
+            alert("Error 403: Lo sentimos, pero no tiene los permisos necesarios")
+            break;
           case 404:
-              alert("Error 404: No encontrado")
-              break;
+            alert("Error 404: No encontrado")
+            break;
           case 500:
-              alert("Error 500: El nombre de usuario ya existe")
-              return response.json()
-              break;
-      }
+            alert("Error 500: El nombre de usuario ya existe")
+            return response.json()
+            break;
+        }
       })
-      .then((data) => 
-      {
+      .then((data) => {
         //console.log(data)
-                if (data.httpStatus === 'CREATED') {
-                    alert("Comentario creado Correctamente")
-                    navigate("/coments")
-                } else {
-                    alert("Error al crear comentario")
-                    navigate("/coments")
-                }
+        if (data.httpStatus === 'CREATED') {
+          alert("Comentario creado Correctamente")
+          navigate("/coments")
+        } else {
+          alert("Error al crear comentario")
+          navigate("/coments")
+        }
       })
       .catch((error) => console.log("error", error));
   }

@@ -1,11 +1,14 @@
 import { useRef } from "react"
+import { useState } from "react"
 import { useContext } from "react"
 //import UserContext  from "../context/UserContext"
 import UserContext from "./UserContext"
 
 const Prueba = () =>{
+    console.log("prueba")
     //const {user} = useContext(UserContext);
-    const {user} = useContext(UserContext)
+    const {user} = useState(UserContext)
+    console.log(user)
     return(
         <>
             <h1>Component Prueba</h1>
