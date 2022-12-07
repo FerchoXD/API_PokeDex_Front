@@ -7,7 +7,8 @@ import { StatusCode } from "react-http-status-code";
 function Register() {
   const [name, setName] = useState("")
   const [password, setPassword] = useState("")
-  const [age, setAge] = useState("")
+  const [email, setEmail] = useState("")
+  const [username, setUsername] = useState("")
   const form = useRef(null)
   const navigate = useNavigate()
 
@@ -21,9 +22,14 @@ function Register() {
     setPassword(value)
   }
 
-  function handleChangeAge(e) {
+  function handleChangeEmail(e) {
     const value = e.target.value
-    setAge(value)
+    setEmail(value)
+  }
+
+  function handleChangeUserName(e) {
+    const value = e.target.value
+    setUsername(value)
   }
 
   function handleChangeSubmit(e) {
@@ -31,16 +37,17 @@ function Register() {
     const formData = new FormData(form.current)
     const name = formData.get('name')
     const password = formData.get('password')
-    const age = formData.get('age')
+    const email = formData.get('email')
+    const UserName = formData.get('username')
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-      "name": name,
+      "nombre": name,
+      "nombreUsuario": UserName,
+      "email": email,
       "password": password,
-      "age": age,
-      "category": "Trainer",
-      "image": "null"
+      "roles": ["USER"]
     });
 
     var requestOptions = {
@@ -50,7 +57,7 @@ function Register() {
       redirect: 'follow'
     };
 
-    fetch("http://localhost:8080/trainer/", requestOptions)
+    fetch("http://localhost:8080/auth/nuevo", requestOptions)
       .then(response => {
         console.log(response)
         switch (response.status) {
@@ -105,16 +112,20 @@ function Register() {
           </h1>
         </div>
         <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">Usuario</label>
-          <input type="text" className="form-control" id="name" name="name" aria-describedby="emailHelp" onChange={handleChangeName} />
+          <label htmlFor="exampleInputPassword1" className="form-label">Nombre: </label>
+          <input type="text" className="form-control" id="name" name="name" onChange={handleChangeName} />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label">Nombre de Usuario:</label>
+          <input type="text" className="form-control" id="username" name="username" aria-describedby="emailHelp" onChange={handleChangeUserName} />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">Email: </label>
+          <input type="email" className="form-control" id="email" name="email" onChange={handleChangeEmail} />
         </div>
         <div className="mb-3">
           <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
           <input type="password" className="form-control" id="password" name="password" onChange={handleChangePassword} />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">Edad</label>
-          <input type="password" className="form-control" id="age" name="age" onChange={handleChangeAge} />
         </div>
         <button type="submit" className="btn btn-dark w-100">Submit</button>
         <Link to="/" className="redirect" >Ya tienes una cuenta? </Link>

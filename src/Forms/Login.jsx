@@ -26,10 +26,10 @@ function Login() {
     const username = formData.get('name')
     const userPassword = formData.get('password')
     var raw = JSON.stringify({
-      "email": username,
+      "nombreUsuario": username,
       "password": userPassword
     });
-    fetch('http://localhost:8080/login',{ 
+    fetch('http://localhost:8080/auth/login',{ 
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -44,10 +44,17 @@ function Login() {
         switch (res.status) {
           case 200:
             alert("200. Inicio de sesión exitosa")
-            return res.json()
+            let response = {
+              "status": res.status,
+              "nombre": username,
+              "token": res.json()
+            }
+            return response;
             break;
           case 201:
-              alert("Éxito")
+              alert("Datos incorrectos")
+              let status = false
+              return status
             break;
           case 400:
               alert("Error 400: Favor de ingresar bien los datos")
@@ -66,11 +73,14 @@ function Login() {
               break; 
         }})
       .then(data => {
-        console.log(data.httpStatus)
-        if (data.httpStatus === 'OK') {
-          let name = data.data.name
-          let pass = data.data.password
-          Validar(userPassword, name, pass)
+        console.log("-------")
+        console.log(data)
+        console.log(data.token.token)
+        //console.log(data.httpStatus)
+        localStorage.setItem('token', data.token)
+        if (data.status === 200) {
+          let name = data.nombre
+          Salvar(name)
         } else if (data.httpStatus === 500)
           alert("Usuario no existente")
         else 
@@ -79,7 +89,7 @@ function Login() {
       .catch(err => console.log(err))
   }
 
-  function Validar(password, name, pass) {
+  function Validar(name) {
     if(password === pass){
       alert("Usuario existente")
       Salvar(name)
