@@ -17,18 +17,18 @@
     padding: 0px 20px;
 }
 
-.body_cards{
+/* .body_cards{
     background-color: rgb(182, 221, 255);   
     color:black;
     align-items: center;
-}
+} */
 
 .btn-comments{
     border-radius: 15px;
     width: 250px;
     height: 30px;
     margin-top: 30px;
-    background-color: yellow;
+    background-color: #C74647;
 }
 
 .contenedor-btn{
@@ -69,7 +69,7 @@
     flex: 0 0 calc(33.33%-20px);
     max-width: calc(33.33%-20px);
     width: 90%;
-    background: rgb(183, 240, 150);
+    background: #C74647;
     border-radius: 10px;
     padding: 20px;
 }

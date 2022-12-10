@@ -754,11 +754,11 @@
      color: #fff;
      font-family: poppins;
 }
- .form-control:focus {
+ /* .form-control:focus {
      box-shadow: inherit;
      border: #00aeef solid 2px !important;
      background: #00aeef;
-}
+} */
  #search_bar {
      color: #fff !important;
      opacity: 1;

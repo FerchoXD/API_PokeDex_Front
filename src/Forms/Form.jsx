@@ -4,14 +4,14 @@ import { useState, useRef } from "react"
 import Input from "../Forms/Input";
 //import Prueba from "../context/Prueba"
 //import UserContext from "../context/UserContext"
-import { useDispatch } from 'react-redux';
+//import { useDispatch } from 'react-redux';
 import PokemonContext from "../context/PokemonContext"
 
 function Form() {
 
     //const value = useContext(PokemonContext);
     const [user, setUser] = useState(null)
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
     const form = useRef(null);
     const navigate = useNavigate();
     const [name, setName] = useState("");
@@ -117,9 +117,13 @@ function Form() {
     }
     return (
         <PokemonContext.Provider value={{ pokemon, setPokemon }}>
-            <div className="form">
+                      <div class="main-w3layouts wrapper">
+                      <h1>Crea tus personajes</h1>
+                      <div class="main-agileinfo">
                 <form onSubmit={handleSubmit} ref={form}>
                     <div className="input-container">
+                        <br/>
+                        <br/>
                         <Input
                             label="Nombre"
                             type="text"
@@ -129,6 +133,8 @@ function Form() {
                             classname="input"
                             onChange={handleChangeName}
                         />
+                                                <br/>
+                                                <br/>
                         <Input
                             label="Especie"
                             type="text"
@@ -138,6 +144,8 @@ function Form() {
                             placeholder="Ejem: 'nidoran'"
                             onChange={handleChangeSpecie}
                         />
+                                                <br/>
+                                                <br/>
                         <Input
                             label="Tipo"
                             type="text"
@@ -150,6 +158,8 @@ function Form() {
                     </div>
 
                     <div className="button-container">
+                    <br/>
+                    <br/>
                         <Input
                             type="submit"
                             classname="button"
@@ -157,7 +167,8 @@ function Form() {
                         />
                     </div>
                     {pokemon && JSON.stringify(pokemon)}
-                </form>
+                    </form>
+            </div>
             </div>
         </PokemonContext.Provider>
     )

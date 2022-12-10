@@ -16,15 +16,27 @@ function Prueba() {
     const InsertarArchivos = (e) => {
         e.preventDefault();
         let url = 'http://localhost:8080/file/pokemon/' + id;
-        const f = new FormData();
-        f.append('file', archivos[0]);
-        
-        axios.put(url, f)
-            .then(response => {
-                console.log(response)
-                alert('Pokemon creado');
-                navigate('/Home')
-            }).catch(error => { console.log(error) })
+
+        let token = localStorage.getItem('token')
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer " + token);
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Access-Control-Allow-Origin", "*");
+
+        var formdata = new FormData();
+        formdata.append("file", archivos);
+
+        var requestOptions = {
+            method: 'PUT',
+            headers: myHeaders,
+            body: formdata,
+            redirect: 'follow'
+        };
+
+        fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
     }
     return (
         <>

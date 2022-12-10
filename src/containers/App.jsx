@@ -18,35 +18,33 @@ import Cards from "../components/Cards";
 import CardsPokemon from "../components/Card_pokemon";
 import TraerPokemons from "../components/traerPokemons";
 import ListComment from "../components/ListComment";
-
-import UserContext from "../context/UserContext";
+//import PrivateRoute from "../components/ProtectedRoute";
+import UserContext from "../context/userContext";
 import LoginPrueba from "../Context/LoginPrueba";
-import TrainerContext from "../Context/TrainerContext";
 
 function App() {
-  const trainerData = {
-    name: null
-  }
+  
+  const [userContext, setUserContext] = useState({ token: "null", authorized: false });
   return (
-    <TrainerContext.Provider value={{ trainerData }}>
-      <Provider store={store}>
+    <UserContext.Provider value={{ userContext, setUserContext }}>
         <Routes>
+        <Route path="*" element={<NotFound />} />
+        <Route path="/Register" element={<Register />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/pruebaLogin" element={<LoginPrueba />}/>
+          
+          
+
+
           <Route path="/crear" element={<CPokemons />} />
           <Route path="/home" element={<Home />} />
           <Route path="/picture" element={<Picture />} />
           <Route path="/pokemons" element={<ListPokemons />} />
           <Route path="/comentarios" element={<Comentarios />} />
-          <Route path="/forum" element={<Forum />} />
+          <Route path="/forum" element={<ListComment />} />
           <Route path="/pokemon" element={<TraerPokemons />} />
-          <Route path="/coments" element={<ListComment />} />
-          <Route path="/" element={<Login />} />
-          <Route path="/Register" element={<Register />} />
-          <Route path="/prueba" element={<Prueba />}></Route>
-          <Route path="/pruebaLogin" element={<LoginPrueba />}></Route>
-          <Route path="*" element={<NotFound />} />
         </Routes>
-      </Provider>
-    </TrainerContext.Provider>
+    </UserContext.Provider>
   );
 }
 

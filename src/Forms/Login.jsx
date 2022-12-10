@@ -46,6 +46,7 @@ function Login() {
         switch (res.status) {
           case 200:
             alert("200. Inicio de sesión exitosa")
+            localStorage.setItem('bool', true)
             return res.json();
             break;
           case 201:

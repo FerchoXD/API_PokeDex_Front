@@ -4,7 +4,8 @@ import "../styles/Comments.css";
 import { StatusCode } from "react-http-status-code";
 
 function Comentarios() {
-
+  let boolean = localStorage.getItem('bool')
+  console.log(boolean)
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -67,10 +68,10 @@ function Comentarios() {
         //console.log(data)
         if (data.httpStatus === 'CREATED') {
           alert("Comentario creado Correctamente")
-          navigate("/coments")
+          navigate("/forum")
         } else {
           alert("Error al crear comentario")
-          navigate("/coments")
+          navigate("/forum")
         }
       })
       .catch((error) => console.log("error", error));
@@ -86,7 +87,7 @@ function Comentarios() {
     setDescription(value);
   }
 
-  return (
+  return boolean ? (
     <>
       <div className="todo">
         <div className="comment">
@@ -138,7 +139,7 @@ function Comentarios() {
         </div>
       </div>
     </>
-  );
+  ):<h1>Loggeate por favor!!!</h1>;
 }
 
 export default Comentarios;

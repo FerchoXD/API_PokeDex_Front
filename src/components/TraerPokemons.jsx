@@ -3,7 +3,11 @@ import { useEffect } from "react"
 import Cards from "../components/Card_pokemon"
 import "../styles/card_pokemon.css"
 
+
 function TraerPokemons() {
+  let boolean = localStorage.getItem('bool')
+  console.log(boolean)
+
   const [pokemon, setPokemon]=useState([])
   const [loadmore, setLoadmore]=useState('https://pokeapi.co/api/v2/pokemon?limit=20')
 
@@ -29,7 +33,7 @@ function TraerPokemons() {
     getPokemon()
   }, [])
 
-  return (
+  return boolean ? (
     <div className="app-container">
       <h1>EVOLUCIÓN DE POKEMON</h1>
       <div className="pokemon-container">
@@ -50,7 +54,7 @@ function TraerPokemons() {
       
           
     </div>
-  )
+  ):<h1>Loggeate Por favor</h1>;
 }
 
 export default TraerPokemons;

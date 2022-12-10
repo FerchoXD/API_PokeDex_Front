@@ -1,11 +1,13 @@
-import React from 'react'
-import { Navigate } from 'react-router-dom'
+import { Navigate, Outlet } from "react-router-dom";
 
-const PrivateRouter = ({user, children}) =>{
-   if(!user.isConnected){
-     return <Navigate to="/login" replace/> 
-   } 
-   return children
-}
+export const ProtectedRoute = ({
+  isAllowed,
+  redirectTo = "/landing",
+  children,
+}) => {
+  if (!isAllowed) {
+    return <Navigate to={redirectTo} replace />;
+  }
 
-export default PrivateRouter
+  return children ? children : <Outlet />;
+};

@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom"
 import "../styles/cards.css"
+import '../styles/home/css/regist.css'
 
 export default function Cards({autor, title, description}) {
   
@@ -15,7 +16,7 @@ export default function Cards({autor, title, description}) {
               <div className="card_comment">
                 <h2>{autor}</h2>
                 <h3>{title}</h3>
-                <label>{description}</label>
+                <h2>{description}</h2>
               </div>
 
           </div>
